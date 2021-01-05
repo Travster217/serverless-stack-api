@@ -9,12 +9,12 @@ export const main = handler(async (event, context) => {
     // - 'notesId': path parameter
     Key: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      notesId: event.pathParameters.id
+      // notesId: event.pathParameters.id
     }
   };
 
   const result = await dynamoDb.get(params);
-  if (!result.Item) {
+  if ( ! result.Item) {
     throw new Error("Item not found.");
   }
 
